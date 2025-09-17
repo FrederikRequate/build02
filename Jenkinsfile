@@ -40,5 +40,4 @@ sh ' mvn clean verify sonar:sonar   -Dsonar.projectKey=HelloWorldTest  -Dsonar.p
         }
 }
 }
-}
 
