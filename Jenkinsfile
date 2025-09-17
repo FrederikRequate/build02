@@ -38,7 +38,7 @@ sh ' mvn clean verify sonar:sonar   -Dsonar.projectKey=HelloWorldTest  -Dsonar.p
                 }
             }
         }
-post {
+post{
     success {
       mail to: 'frederik.requate@regnology.net',
            subject: "✅ SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
@@ -52,5 +52,5 @@ post {
   }
 }
 }
-}
+
 
