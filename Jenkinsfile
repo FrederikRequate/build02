@@ -38,6 +38,18 @@ sh ' mvn clean verify sonar:sonar   -Dsonar.projectKey=HelloWorldTest  -Dsonar.p
                 }
             }
         }
+post {
+    success {
+      mail to: 'frederik.requate@regnology.net',
+           subject: "✅ SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+           body: "Build succeeded.\nSee: ${env.BUILD_URL}"
+    }
+    failure {
+      mail to: 'frederik.requate@regnology.net',
+           subject: "❌ FAILURE: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+           body: "Build failed.\nConsole: ${env.BUILD_URL}console"
+    }
+  }
 }
 }
 
